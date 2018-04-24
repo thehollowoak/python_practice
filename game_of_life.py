@@ -21,11 +21,15 @@ class color:
     RED = '\033[91m'
     YELLOW = '\033[93m'
     GREEN = '\033[92m'
+    CYAN = '\033[96m'
     BLUE = '\033[94m'
     PURPLE = '\033[95m'
-    END = '\033[0m'
+    GRAY = '\033[90m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    BLINK = '\033[5m'
+    HIGHLIGHT = '\033[7m'
+    END = '\033[0m'
 
 class GameOfLife:
 	def __init__(self, length):
@@ -67,7 +71,7 @@ class GameOfLife:
 				elif liveCells < 2 or liveCells > 3: grid[y][x] = ' '
 				elif color.RED in copy[y][x]: grid[y][x] = color.YELLOW + '*' + color.END
 				elif color.YELLOW in copy[y][x]: grid[y][x] = color.GREEN + '*' + color.END
-				elif color.GREEN in copy[y][x]: grid[y][x] = color.BLUE + '*' + color.END
+				elif color.GREEN in copy[y][x]: grid[y][x] = color.CYAN + '*' + color.END
 				else: grid[y][x] = color.PURPLE + '*' + color.END
 
 				if grid[y][x] != save: same = False

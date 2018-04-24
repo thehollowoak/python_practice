@@ -1,4 +1,4 @@
-from random import randint
+# from random import randint
 
 types = ['grass', 'water', 'fire', 'bug', 'flying', 'normal', 'electric']
 type_map = [[1],
@@ -38,6 +38,7 @@ class Mon:
 		else: self.name = self.dex[number]
 
 	def attack(self, enemy):
+		if enemy.hp <= 0: return
 		damage = int(self.attackDamage() * advantage(self.type, enemy.type))
 		print("%s does %d damage to %s!" % (self.name, damage, enemy.name))
 		enemy.hp -= damage
@@ -67,15 +68,15 @@ class Mon:
 	def totalHp(self): return self.lvl*7+20
 	def attackDamage(self): return self.lvl*2+5
 
-a = Mon(1,1)
-b = Mon(2,1)
-def explore():
-	num = randint(2, 9)
-	if (num == 2): print("Nothing here."); return
-	elif (num == 3): num = randint(1,3)
-	enemy = Mon(num, randint(1, 4))
-	print("Wild %s attacks!" % enemy.name)
-	return enemy
+# a = Mon(1,1)
+# b = Mon(2,1)
+# def explore():
+# 	num = randint(2, 9)
+# 	if (num == 2): print("Nothing here."); return
+# 	elif (num == 3): num = randint(1,3)
+# 	enemy = Mon(num, randint(1, 4))
+# 	print("Wild %s attacks!" % enemy.name)
+# 	return enemy
 
 
 
